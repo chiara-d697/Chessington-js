@@ -24,6 +24,21 @@ describe('King', () => {
         moves.should.have.length(8);
     });
 
+    it('can only make one of five moves if in column 0 but not in a corner', () => {
+        const king = new King(Player.WHITE);
+        board.setPiece(Square.at(1, 0), king);
+
+        const moves = king.getAvailableMoves(board);
+
+        const expectedMoves = [
+            Square.at(2, 0), Square.at(2, 1), Square.at(1, 1),
+            Square.at(0, 0), Square.at(0, 1)
+        ];
+
+        moves.should.deep.include.members(expectedMoves);
+        moves.should.have.length(5);
+    });
+
     it('can only make one of five moves if location of row is 7 but location is not a corner sqaure', () => {
         const king = new King(Player.WHITE);
         board.setPiece(Square.at(7, 2), king);
