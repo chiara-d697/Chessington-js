@@ -12,9 +12,11 @@ export default class Bishop extends Piece {
         let move;
 
         // all possible moves in the up positive diagonal 
+  
+        console.log(`result is ${res}`);
 
         for (let i = 1; i >= Math.min(location.row, location.col); i++) {
-            move = Square.at(location.row + 1, location.col + 1);
+            move = Square.at(1, 2);
            // console.log(`move is ${move}`);
             console.log(`Min move is ${Math.min(location.row, location.col)}`);
             movesArray.push(move);
